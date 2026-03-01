@@ -45,7 +45,7 @@ export default function Footer() {
                 "Real Estate Mentorship",
                 "Life & Career Clarity",
               ].map((x) => (
-                <a key={x} href="#" style={styles.link}>{x}</a>
+                <a key={x} href="#home" style={styles.link}>{x}</a>
               ))}
             </div>
           </div>

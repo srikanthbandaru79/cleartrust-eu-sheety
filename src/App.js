@@ -1,10 +1,4 @@
-import { useState } from "react";
-import { 
-  Menu, X, Calendar, MessageCircle, Users, TrendingUp, Award, 
-  Quote, Mic, UserCheck, Home, Compass, Youtube, Instagram, 
-  Facebook, Twitter, Shield, Heart, Target, Zap, Star, 
-  CheckCircle, Mail, Phone 
-} from "lucide-react";
+
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Hero from './component/Hero'
