@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { 
+  Menu, X, Calendar, MessageCircle, Users, TrendingUp, Award, 
+  Quote, Mic, UserCheck, Home, Compass, Youtube, Instagram, 
+  Facebook, Twitter, Shield, Heart, Target, Zap, Star, 
+  CheckCircle, Mail, Phone 
+} from "lucide-react";
+import Header from './component/Header'
+import Footer from './component/Footer'
+import Hero from './component/Hero'
+import Stats from "./component/Status";
+import About from "./component/About";
+import Services from "./component/Services";
+import Media from "./component/Media";
+import Trust from "./component/Trust";
+import CTA from "./component/CTA";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-[#0a1628]">
+      <Header />
+      <main>
+        <Hero />
+        <Stats />
+         <About />
+         <Services />
+         <Media />
+          <Trust />
+           <CTA /> 
+     
+      </main>
+      <Footer /> 
     </div>
   );
 }
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
