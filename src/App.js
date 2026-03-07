@@ -8,6 +8,8 @@ import Services from "./component/Services";
 import Media from "./component/Media";
 import Trust from "./component/Trust";
 import CTA from "./component/CTA";
+import  Gallery  from './component/Gallery';
+
 
 export default function App() {
   return (
@@ -19,6 +21,7 @@ export default function App() {
          <About />
          <Services />
          <Media />
+         <Gallery/>
           <Trust />
            <CTA /> 
      

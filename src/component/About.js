@@ -1,7 +1,7 @@
 import {  Quote
 } from "lucide-react";
 import { motion } from "framer-motion";
-import eu_sheety_about from '../assets/eu_sheety_about.jpg'
+import eu_sheety_about from '../assets/eu_sheety_about.png'
 
 export default function About() {
   const styles = {
@@ -31,7 +31,7 @@ export default function About() {
               <img
                 src={eu_sheety_about}
                 alt="About E. Urukundu Shetty"
-                style={{ width: '100%', aspectRatio: '4 / 5', objectFit: 'cover' }}
+                style={{ width: '100%', aspectRatio: '4 / 5', objectFit: 'fill' }}
               />
             </div>
           </motion.div>
