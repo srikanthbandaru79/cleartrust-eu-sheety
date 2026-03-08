@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Image,
@@ -10,18 +10,48 @@ import {
   X
 } from "lucide-react";
 
-import medchal_1 from '../assets/medchal/image1.png'
-import medchal_2 from '../assets/medchal/image2.png'
-import medchal_3 from '../assets/medchal/image3.png'
+import medchal_1 from "../assets/medchal/image1.png";
+import medchal_2 from "../assets/medchal/image2.png";
+import medchal_3 from "../assets/medchal/image3.png";
 
-import impact_1 from '../assets/impact/impact1.png'
-import impact_2 from '../assets/impact/impact1.png'
+import impact_1 from "../assets/impact/impact1.png";
+import impact_2 from "../assets/impact/impact2.png";
 
-import news_1 from '../assets/news/image1.png'
-import news_2 from '../assets/news/image2.png'
-import news_3 from '../assets/news/image3.png'
+import news_1 from "../assets/news/image1.png";
+import news_2 from "../assets/news/image2.png";
+import news_3 from "../assets/news/image3.png";
 
-import award_1 from '../assets/awards/image1.png'
+import award_1 from "../assets/awards/image1.png";
+const events = [
+  {
+    id: 1,
+    category: "events",
+    title: "Medchal Police Leadership Training",
+    description: "Leadership and mindset training session for police officers.",
+    images: [medchal_1, medchal_2, medchal_3]
+  },
+  {
+    id: 2,
+    category: "events",
+    title: "Impact Personal Development Program",
+    description: "Empowering students with clarity, confidence, and life direction.",
+    images: [impact_1, impact_2]
+  },
+  {
+    id: 3,
+    category: "press",
+    title: "Featured in Media",
+    description: "Media recognition for contributions to leadership and personal development.",
+    images: [news_1, news_2, news_3]
+  },
+  {
+    id: 4,
+    category: "awards",
+    title: "Leadership Excellence Award",
+    description: "Honored for inspiring leadership and mentoring future leaders.",
+    images: [award_1]
+  }
+];
 
 export default function Gallery() {
 
@@ -36,36 +66,17 @@ export default function Gallery() {
     { id: "awards", label: "Awards", icon: Trophy }
   ];
 
-  const events = [
-    {
-      id: 1,
-      category: "events",
-      title: "Medchal Police Leadership Training",
-      description: "Leadership and mindset training session for police officers",
-      images: [medchal_1, medchal_2, medchal_3]
-    },
-    {
-      id: 2,
-      category: "events",
-      title: "Personal Development Program",
-      description: "Empowering students with clarity, confidence, and life direction.",
-      images: [impact_1, impact_2]
-    },
-    {
-      id: 3,
-      category: "press",
-      title: "Featured in Media",
-      description: "Media recognition for contributions to leadership and personal development.",
-      images: [news_1, news_2, news_3]
-    },
-    {
-      id: 4,
-      category: "awards",
-      title: "Leadership Excellence Award",
-      description: "Honored for inspiring leadership and mentoring future leaders",
-      images: [award_1]
-    }
-  ];
+
+  /* PRELOAD IMAGES FOR FAST SLIDING */
+
+  useEffect(() => {
+    events.forEach(event => {
+      event.images.forEach(src => {
+        const img = new window.Image();
+        img.src = src;
+      });
+    });
+  }, []);
 
   const filtered =
     filter === "all"
@@ -156,26 +167,24 @@ export default function Gallery() {
       cursor: "pointer"
     }),
 
-grid: {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 380px))",
-  justifyContent: "center",
-  gap: "30px"
-},
+    grid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+      gap: "30px"
+    },
 
     card: {
       background: "rgba(255,255,255,0.05)",
       borderRadius: "16px",
       overflow: "hidden",
-      border: "1px solid rgba(255,255,255,0.1)",
-      maxWidth:"380px"
+      border: "1px solid rgba(255,255,255,0.1)"
     },
 
     slider: { position: "relative" },
 
     img: {
       width: "100%",
-      height: "260px",
+      height: "220px",
       objectFit: "cover",
       cursor: "pointer"
     },
@@ -258,22 +267,31 @@ grid: {
     return (
       <motion.div
         layout
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.35 }}
         style={styles.card}
       >
 
         <div style={styles.slider}>
 
-          <img
-            src={event.images[index]}
-            style={styles.img}
-            alt=""
-            onClick={() => {
-              setSelectedEvent(event);
-              setCurrentImage(index);
-            }}
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={event.images[index]}
+              src={event.images[index]}
+              loading="lazy"
+              decoding="async"
+              style={styles.img}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => {
+                setSelectedEvent(event);
+                setCurrentImage(index);
+              }}
+            />
+          </AnimatePresence>
 
           {event.images.length > 1 && (
             <>
