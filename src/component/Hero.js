@@ -118,7 +118,7 @@ export default function Hero() {
             </div>
 
             <div style={styles.buttonContainer} className="hero-buttons">
-              <a href="#contact" style={styles.primaryBtn}
+              <a href={personal_info.whatsappLink} style={styles.primaryBtn}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#e8c89e';
                   e.currentTarget.style.transform = 'translateY(-4px)';

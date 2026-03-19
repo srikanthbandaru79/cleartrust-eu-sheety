@@ -46,7 +46,7 @@ export default function CTA() {
   }}
 >
   {/* Primary Button */}
-  <a href="#home"
+  <a href={personal_info.whatsappLink}
     className="cta-primary"
     style={{
       display: "flex",

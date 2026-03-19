@@ -20,8 +20,24 @@ import impact_2 from "../assets/impact/impact2.png";
 import news_1 from "../assets/news/image1.png";
 import news_2 from "../assets/news/image2.png";
 import news_3 from "../assets/news/image3.png";
+import news_4 from "../assets/news/image4.png";
+import news_5 from "../assets/news/image5.png";
+import news_6 from "../assets/news/image6.png";
+
+import repa_1 from "../assets/repa/image1.png";
+import repa_2 from "../assets/repa/image2.png";
+
+import gadwal_1 from "../assets/gadwal/image.png";
 
 import award_1 from "../assets/awards/image1.png";
+import award_2 from "../assets/awards/image2.png";
+
+import tarzan_1 from "../assets/tarzan/image1.png";
+import tarzan_2 from "../assets/tarzan/image2.png";
+
+import training_1 from "../assets/training_1/image1.png";
+import training_2 from "../assets/training_1/image2.png";
+
 const events = [
   {
     id: 1,
@@ -42,16 +58,46 @@ const events = [
     category: "press",
     title: "Featured in Media",
     description: "Media recognition for contributions to leadership and personal development.",
-    images: [news_1, news_2, news_3]
+    images: [news_1, news_2, news_3,news_4,news_5,news_6]
   },
   {
     id: 4,
     category: "awards",
     title: "Leadership Excellence Award",
     description: "Honored for inspiring leadership and mentoring future leaders.",
-    images: [award_1]
+    images: [award_1,award_2]
+  },
+    {
+    id: 5,
+    category: "events",
+    title: "REPA Associates Leadership Meet",
+    description: "Keynote session on leadership and business growth",
+    images: [repa_1,repa_2]
+  },
+   {
+    id: 6,
+    category: "events",
+    title: "Community Empowerment Program",
+    description: "Inspiring young minds through values and personal growth",
+    images: [tarzan_1,tarzan_2]
+  },
+     {
+    id: 7,
+    category: "events",
+    title: "Gadwal Community Leadership Program",
+    description: "Empowering communities through leadership,awareness,and personal growth",
+    images: [gadwal_1]
+  },
+  {
+    id: 8,
+    category: "events",
+    title: "Student Mentorship Session",
+    description: "Guiding students towards confidence and career clarity",
+    images: [training_2,training_1]
   }
 ];
+
+
 
 export default function Gallery() {
 
