@@ -6,7 +6,8 @@ export const personal_info={
     instagramLink:"https://www.instagram.com/eushetty_official",
     youtubeChannel:"https://www.youtube.com/@eushettyspeaker",
     facebookLink:"https://www.facebook.com/eushettyspeaker",
-    embedVideo:"https://www.youtube.com/embed/y0lL3htBpSw?si=LV2elF7TdAlHbKJv"
+    embedVideo:"https://www.youtube.com/embed/FQUiuYBmpCA?si=KPjZtL6QxHMf9pSc"
+
     
 
 }
